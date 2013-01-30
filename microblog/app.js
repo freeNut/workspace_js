@@ -33,8 +33,9 @@ app.configure(function(){
 		  db : settings.db
 	  })
   }));
+  app.use(express.router(routes));
+  //app.use(app.router);
   
-  app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });
 

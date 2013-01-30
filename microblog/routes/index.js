@@ -3,10 +3,22 @@
  * GET home page.
  */
 
-exports.index = function(req, res){
+/*exports.index = function(req, res){
   res.render('index', { title: 'Express' });
+};*/
+module.export = function(app){
+	app.get('/',function(req,res){
+		res.render('index',{
+			title:'首页'
+		});
+	});
+	app.get('/reg',function(req,res){
+		res.render('reg',{
+			title : '用户注册'
+		});
+	});
 };
-
+/*
 exports.user = function(req,res){
 	
 };
@@ -33,4 +45,4 @@ exports.doLogin = function(req,res){
 
 exports.logout = function(req,res){
 	
-};
+};*/
