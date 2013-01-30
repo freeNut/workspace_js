@@ -1,0 +1,138 @@
+<%- partial("head",{userinfo:userinfo,"config":config}) %>
+<%
+var motto = "";
+if(userinfo.motto){
+   motto = userinfo.motto;
+}
+%>
+
+<div class="container">
+  <div class="row show-grid">
+    <div class="span12">
+        <div id="alert-success" class="alert alert-success" style="display:none">
+          <button class="close" data-dismiss="alert" onclick="close_alter_success()">x</button>
+          <div id="success_msg"></div>
+        </div>
+        <div id="alert-error" class="alert alert-error" style="display:none">
+          <button class="close" data-dismiss="alert" onclick="close_alter_error()">x</button>
+          <div id="error_msg"></div>
+        </div>
+        <div class="tabbable"> <!-- Only required for left/right tabs -->
+			  <ul class="nav nav-tabs">
+			    <li class="active"><a href="#tab1" data-toggle="tab">基本资料</a></li>
+			    <li><a href="#tab2" data-toggle="tab">修改密码</a></li>
+			    <li><a href="#tab3" data-toggle="tab">修改头像</a></li>
+			  </ul>
+			  <div class="tab-content">
+			    <div class="tab-pane active" id="tab1" >
+			    <form class="form-horizontal" method="POST" action="" onsubmit="return doupdate_info('/user/setting/update_info')">
+			     
+                   <fieldset>
+                   
+			          <div class="control-group">
+		                  <label class="control-label" for="email">Email</label>
+		                  <div class="controls">
+		                    <input class="input input-xlarge" type="text" id="email" name="email" disabled placeholder="Email" value="<%= userinfo.email%>">
+		                    <small class="help-block">字数控制在<%= user_config.email_size[0]%>到<%= user_config.email_size[1]%>个之间</small>
+		                  </div>
+		               </div>
+		               <div class="control-group">
+		                  <label class="control-label" for="nickname">昵称</label>
+		                  <div class="controls">
+		                    <input class="input input-xlarge" type="text" id="nickname" name="nickname" placeholder="昵称" value="<%= userinfo.nickname%>">
+		                    <small class="help-block">字数控制在<%= user_config.nickname_size[0]%>到<%= user_config.nickname_size[1]%>个之间</small>
+		                  </div>
+		               </div>
+		               <div class="control-group">
+		                  <label class="control-label" for="motto">箴言</label>
+		                  <div class="controls">
+                            <textarea class="input-xlarge" id="motto" name="motto" placeholder="箴言" style="width:82%;height:80px;"><%= motto%></textarea>
+		                    <small class="help-block">字数控制在<%= user_config.motto_size[0]%>到<%= user_config.motto_size[1]%>个之间</small>
+		                  </div>
+	                  </div>
+	                  <div class="form-actions">
+                          <button class="btn btn-primary" type="submit">更新</button>&nbsp;&nbsp;
+                      </div>
+	                  </fieldset>
+	                </form>
+			    </div>
+			    <div class="tab-pane" id="tab2">
+			       <form class="form-horizontal" method="POST" action="" onsubmit="return doupdate_pass('/user/setting/update_pass')">
+			       <input type="hidden" value="update_pass" name="action" />
+                   <fieldset>
+			          <div class="control-group">
+		                  <label class="control-label" for="password">当前密码</label>
+		                  <div class="controls">
+		                    <input class="input input-xlarge" type="password" id="cur_password" name="cur_password" placeholder="当前密码" >
+		                  </div>
+		              </div>
+		              <div class="control-group">
+		                  <label class="control-label" for="new_password">新密码</label>
+		                  <div class="controls">
+		                    <input class="input input-xlarge" type="password" id="new_password" name="new_password" placeholder="新密码">
+		                    <small class="help-block">字数控制在<%= user_config.password_size[0]%>到<%= user_config.password_size[1]%>个之间</small>
+						  </div>
+		              </div>
+		              <div class="control-group">
+		                  <label class="control-label" for="re_new_password">重复新密码</label>
+		                  <div class="controls">
+		                    <input class="input input-xlarge" type="password" id="re_new_password" name="re_new_password" placeholder="重复新密码">
+		                  </div>
+	                  </div>
+	                  <div class="form-actions">
+                          <button class="btn btn-primary" type="submit">更新</button>&nbsp;&nbsp;
+                      </div>
+	                  </fieldset>
+	                </form>
+			    </div>
+			    <div class="tab-pane" id="tab3">
+			     <form class="form-horizontal" method="POST" action="" onsubmit="return doupdate_avatar('/user/setting/update_avatar')">
+			     <input type="hidden" value="update_avatar" name="action" />
+                   <fieldset>
+			          <div class="control-group">
+		                  <label class="control-label" for="email">当前头像</label>
+		                  <div class="controls">
+						  <%
+						    var avatar_url = "";
+							
+						     if(userinfo.avatar.indexOf("default") == -1){
+							    avatar_url = userinfo.avatar; 
+							 }else{
+							    avatar_url = config.user_config.avatar_url+userinfo.avatar;
+							 }
+						  %>
+		                    <img id="avatar_img" src="<%= avatar_url%>">
+		                  </div>
+		              </div>
+		              <div class="control-group">
+		                  <label class="control-label" for="new_avatar">新头像URL地址</label>
+		                  <div class="controls">
+		                    <input class="input input-xxlarge" type="text" id="new_avatar" name="new_avatar" placeholder="新头像URL地址" value="">
+		                   <small class="help-block">填写可靠的图片URL地址，推荐在 <a href="http://cn.gravatar.com/">Gravatar</a> 注册或更改您的头像。</small>
+		                  </div>
+		              </div>
+		  
+	                  <div class="form-actions">
+                          <button class="btn btn-primary" type="submit">更新</button>&nbsp;&nbsp;
+                      </div>
+	                  </fieldset>
+	                </form>
+	                
+			    </div>
+			  </div>
+          </div>
+    </div>
+  
+  </div>  
+  <hr/>
+  <%- partial("footer",{"config":config}) %>
+</div>
+<script type="text/javascript" src="/javascripts/bootstrap-tab.js" charset="utf-8"> </script>
+<script type="text/javascript">
+
+</script>
+          
+
+                
+
+    

@@ -1,0 +1,40 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="/">晓知+</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><a href="/">首页</a></li>
+          <li><a href="/diary/add">添加日记</a></li>
+          <li><a href="/diary/list">所有日记</a></li>
+          <% if(userinfo){%>
+          <li><a href="/diary/<%= userinfo._id%>/mlist">我的日记</a></li>
+          <li><a href="/diary/collection">我的收藏</a></li>
+          <%}%>
+        </ul>
+      </div>
+      <form class="navbar-form pull-left" method="get" onsubmit="return dosearch(this,'/diary/search')">
+        <input class="search-query span3 input-large" type="text" name="keyword" placeholder="Search" />
+      </form>
+      <div class="nav-collapse">
+        <ul class="nav pull-right">
+        <% if(userinfo){%>
+        <li><a href="/user/setting">设置</a></li>
+        <% if(userinfo.email == config.admin_email ){%>
+        <li><a href="/user/admin">管理</a></li>
+        <% }%>
+        <li><a href="/user/logout">退出</a></li>
+        <%}else{%>
+        <li><a href="/user/login">登录</a></li>
+        <li><a href="/user/register">注册</a></li>
+        <%}%>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

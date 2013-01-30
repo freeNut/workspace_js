@@ -1,0 +1,70 @@
+<div class="panel">
+  <div class="header">作者</div>
+      <%
+    var avatar_url = "";
+    
+     if(author_info.avatar && author_info.avatar.indexOf("default") == -1){
+      avatar_url = author_info.avatar; 
+     }else{
+      avatar_url = config.user_config.avatar_url+author_info.avatar;
+     }
+  %>
+      <div style="height:50px;">
+
+      <div id="uinfo_div" class="nailthumb-container" style="float:left">
+            <a href="/diary/<%= author_info._id %>/mlist"><img class="entry-img" src="<%= avatar_url%>"></a>
+      </div>
+            <div class="userinfo">
+                <i class="icon-flag"></i>&nbsp;<%= author_info.score%>
+            </div>
+            <div class="user-nickname"><a href="/diary/<%= author_info._id %>/mlist"><%= author_info.nickname%></a></div>
+      </div>
+      <div class="proverbs">
+        <%
+        var motto = "";
+        if(author_info && author_info.motto){
+            motto = author_info.motto;
+        }
+        %>
+        <%= motto%>
+      </div>
+</div>
+
+<div class="panel">
+  <div class="header">作者其它日志</div>
+  <ul class="unstyled">
+    <% 
+          if(author_diarys && author_diarys.length > 0){
+          for(var i = 0; i < author_diarys.length; i++) {
+             var diary = author_diarys[i];
+         %>
+          <li><i class="icon-list-alt"></i>&nbsp;<a href="/diary/<%= diary._id %>/view"><%= diary.title%></a></li>
+      <%
+        }
+      }
+      %>
+        </ul>  
+</div>
+
+<div class="panel">
+  <div class="header">作者收藏的日志</div>
+  <ul class="unstyled">
+    <% 
+          if(author_collect_diarys && author_collect_diarys.length > 0){
+          for(var i = 0; i < author_collect_diarys.length; i++) {
+             var diary = author_collect_diarys[i];
+             if(!diary){
+                continue;
+             }
+             
+         %>
+          <li><i class="icon-heart"></i>&nbsp;<a href="/diary/<%= diary._id %>/view"><%= diary.title%></a></li>
+      <%
+        }
+      }
+      %>
+        </ul>  
+</div>
+<script type="text/javascript">
+    jQuery('#uinfo_div').nailthumb({width:48,height:48,method:'resize',fitDirection:'top center'});
+</script>

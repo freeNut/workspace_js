@@ -8,19 +8,20 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
-var partials = require('express-partials');
+//var partials = require('express-partials');
 
 var MongoStore = require("connect-mongo")(express);
 var settings = require('./settings');
 
 
-var app = express();
+//var app = express();
+var app = express.createServer();
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
-  app.use(partials());
+  //app.use(partials());
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -53,6 +54,6 @@ app.get('/login',routes.login);
 app.post('/login',routes.doLogin);
 app.get('/logout',routes.logout);
 
-http.createServer(app).listen(app.get('port'), function(){
+app.listen(3000, function(){
   console.log("Express server listening on port " + app.get('port'));
 });

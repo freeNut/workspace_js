@@ -1,0 +1,405 @@
+ body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.nailthumb-container{
+  margin-right:12px;
+  text-align:left;
+}
+
+.nailthumb-container a{
+  text-align:left;
+}
+
+.post-edit-link{
+}
+
+.ul{
+   border-bottom: 1px dashed #DDDDDD;
+   clear: both;
+   line-height: 100%;
+   margin-bottom:6px;
+   margin-top:6px;
+}
+.post{
+}
+.entry-title {
+	color: #0C7823;
+	text-decoration: none;
+    font-size: 14px;
+    padding-top:2px;
+    padding-bottom:2px;
+    font-weight:bold;
+
+}
+
+.entry-meta {
+	color: #666666;
+	font-size: 12px/150% Arial,Helvetica,sans-serif;
+}
+.entry-meta abbr,
+.entry-utility abbr {
+	border: none;
+}
+.entry-meta abbr:hover,
+.entry-utility abbr:hover {
+	border-bottom: 1px dotted #666;
+}
+.entry-content,
+.entry-summary {
+	clear: both;
+	padding: 12px 0 0 0;
+}
+.entry-content fieldset {
+	border: 1px solid #e7e7e7;
+	margin: 0 0 24px 0;
+	padding: 24px;
+}
+.entry-content fieldset legend {
+	background: #fff;
+	color: #000;
+	font-weight: bold;
+	padding: 0 24px;
+}
+.entry-content input {
+	margin: 0 0 24px 0;
+}
+.entry-content input.file,
+.entry-content input.button {
+	margin-right: 24px;
+}
+.entry-content label {
+	color: #888;
+	font-size: 12px;
+}
+.entry-content select {
+	margin: 0 0 24px 0;
+}
+.entry-content sup,
+.entry-content sub {
+	font-size: 10px;
+}
+.entry-content blockquote.left {
+	float: left;
+	margin-left: 0;
+	margin-right: 24px;
+	text-align: right;
+	width: 33%;
+}
+.entry-content blockquote.right {
+	float: right;
+	margin-left: 24px;
+	margin-right: 0;
+	text-align: left;
+	width: 33%;
+}
+.page-link {
+	clear: both;
+	color: #000;
+	font-weight: bold;
+	margin: 0 0 22px 0;
+	word-spacing: 0.5em;
+}
+.page-link a:link,
+.page-link a:visited {
+	background: #f1f1f1;
+	color: #333;
+	font-weight: normal;
+	padding: 0.5em 0.75em;
+	text-decoration: none;
+}
+.home .sticky .page-link a {
+	background: #d9e8f7;
+}
+.page-link a:active,
+.page-link a:hover {
+	color: #ff4b33;
+}
+body.page .edit-link {
+	clear: both;
+	display: block;
+}
+.entry-utility {
+	clear: both;
+	color: #888;
+	font-size: 12px;
+	line-height: 18px;
+}
+.entry-meta a,
+.entry-utility a {
+	color: #888;
+}
+.entry-meta a:hover,
+.entry-utility a:hover {
+	color: #ff4b33;
+}
+.entry-utility-prep{
+   padding-left:2px;
+   padding-right:2px;
+}
+.meta-sep{
+   padding-left:2px;
+   padding-right:2px;
+}
+.entry-img{
+  margin: 0 10px 10px 0;
+}
+.entry-date{
+  padding-right:2px;
+  padding-left:2px;
+}
+
+.panel{
+  display:block;
+  min-height: 20px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+    -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  /*
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+    -webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow:1px 1px 2px rgba(0, 0, 0, 0.3);         
+    */ 
+
+}
+
+.header{
+   border-bottom:0px solid #ddd;
+   height:24px;
+   margin-bottom:12px;
+   font-weight:bold;
+   color:#bbb;
+}
+
+.diary-title{
+   border-bottom:1px solid #ddd;
+   height:24px;
+   margin-bottom:12px;
+   font-weight:bold;
+   font-size:large;
+   color:#666;
+}
+
+.diary-subtitle{
+   font-size:10px;
+   font-weight:normal;
+   color:#99BBF6;
+   float:right;
+}
+
+.summary{
+   height:24px;
+   margin-bottom:12px;
+   color:#999;
+   background:#eee;
+   padding:6px;
+}
+
+.content{
+  border-bottom:1px solid #ddd;
+  margin-bottom:12px;
+  padding-bottom:12px;
+  min-height:250px;
+}
+
+.diary-tail{
+  min-height:24px;
+}
+
+.diary-meta{
+}
+
+.comment{
+   margin-bottom:12px;
+   font-weight:bold;
+   color:#666;
+}
+
+.comment-list{
+  font-size:12px;
+  padding-top:12px;
+  font-weight:normal;
+}
+
+.comment-item{
+   border-bottom:1px solid #eee;
+   margin-top:12px;
+   margin-bottom:12px;
+   padding-bottom:6px;
+}
+.comment-left{
+
+}
+.comment-right{
+
+}
+
+.comment-cont{
+  padding-top:6px;
+}
+
+.comment-header{
+  background:#ecf0ff;
+  font-size:11px;
+  font-weight:normal;
+  text-align:left;
+  padding-left:12px;
+}
+
+.comment-float{
+  float:right;
+  margin: 0 0 0 0;
+}
+.comment-floor{
+  
+  font-size:10px;
+  padding-right:10px;
+  color:#aaaaff;
+}
+
+.comment-reply{
+  font-size:10px;
+  padding-right:10px;
+  color:#aaaaff;
+}
+.user-nickname{
+	text-align: left;
+	font-size:large;
+	color: #444;
+  margin-left: 24px;
+}
+.userinfo{
+	line-height:18px;
+	height: 18px;
+	padding-top:6px;
+	padding-left: 12px;
+	font-size:12px;
+	text-align:right;
+}
+.proverbs{
+   color:#262;
+   font-size:14px;
+   font-weight:bold;
+   line-height:20px;
+   padding-left: 12px;
+   margin-top:12px;
+   margin-bottom:12px;
+   
+}
+.ann_h1{
+	color:#005580;
+	font-size: large;
+	font-weight:bold;
+	padding-bottom: 6px;
+	
+	
+}
+.ann_h2{
+	color:#005580;
+	padding-bottom: 6px;
+}
+
+span .number{
+
+	color:#444;
+	padding-right: 3px;
+}
+.radio{
+	padding-top:10px;
+}
+
+.radio iframe{
+	scrolling:no;
+	border:0;
+	width:520px;
+	height:190px;
+	hspace:-100px;
+	vspace:-100px;
+	marginheight:-100px;
+	marginwidth:-100px;
+	align:center;
+}
+.footer{
+    display: block;
+    color:#aaa;
+    font-size:12px;
+}
+
+
+#preview{
+    display:block;
+    width:100px;
+    height:100px;
+    border:1px solid #000;
+    overflow:hidden;
+}
+
+.cursor-hand{
+  cursor: pointer;
+}
+
+.cursor-disable{
+  cursor: not-allowed;
+}
+
+.keyword{
+  font-weight: bold;
+  color: red;
+}
+
+.f-dir{
+   color:blue;
+   cursor: pointer;
+}
+
+.f-file{
+   cursor: pointer;
+}
+
+.at-span{
+   /*background: #ff8;*/
+   color: #22f;
+   text-align: left;
+   font-weight: bold;
+   margin: 0 0 0 0;
+   margin-right: 2px;
+
+}
+
+.emo-list{
+  list-style:none;
+  
+  display:block;
+  float: left;
+  margin: 0 0 0 0;
+  padding-left: 4px;
+}
+.emo-list li{
+  display: inline;
+}
+
+.emo-list li img{
+  border: none;
+  cursor: pointer;
+}
+
+.emo-holder{
+  display: block;
+  float: left;
+  width:520px;
+  margin-bottom: 4px;
+
+}
+
+.view-face{
+  border:none;
+  margin-right:2px;
+}

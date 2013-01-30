@@ -3,10 +3,7 @@
  * GET home page.
  */
 
-/*exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
-};*/
-module.export = function(app){
+module.exports = function(app){
 	app.get('/',function(req,res){
 		res.render('index',{
 			title:'首页'

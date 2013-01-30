@@ -1,0 +1,50 @@
+    <div class="panel">
+        <div class="header">热门日记</div>
+        <ul class="unstyled">
+		<% 
+          if(hot_diarys && hot_diarys.length > 0){
+          for(var i = 0; i < hot_diarys.length; i++) {
+             var diary = hot_diarys[i];
+             
+         %>
+          <li><i class="icon-fire"></i>&nbsp;<a href="/diary/<%= diary._id %>/view"><%= diary.title%></a></li>
+		  <%
+		    }
+      }
+		  %>
+        </ul>       
+    </div>
+    <div class="panel">
+      <div class="header">活跃用户 </div>
+          <ul class="unstyled">
+    <% 
+          if(active_users && active_users.length > 0){
+          for(var i = 0; i < active_users.length; i++) {
+             var user = active_users[i];
+             
+         %>
+          <li><i class="icon-flag"></i>&nbsp;<a href="/diary/<%= user._id %>/mlist"><%= user.nickname%></a></li>
+      <%
+        }
+      }
+      %>
+    </div>
+    <div class="panel">
+      <div class="header">关于本站</div>
+           <ul class="unstyled">
+    <% 
+          if(config.related_sites && config.related_sites.length > 0){
+            for(var i = 0; i < config.related_sites.length; i++) {
+             var rsite = config.related_sites[i];
+            %>
+          <li><i class="icon-hand-up"></i>&nbsp;<%- rsite%></li>
+      <%
+      }
+    }
+      %>
+      
+    </div>
+
+    <script type="text/javascript">
+    jQuery('#uinfo_div').nailthumb({width:48,height:48,method:'resize',fitDirection:'top center'});
+</script>

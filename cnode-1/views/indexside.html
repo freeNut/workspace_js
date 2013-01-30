@@ -1,0 +1,97 @@
+  <%if(!userinfo){%>
+  <form class="panel form-vertical" action="" method="post" onsubmit="return dologin('/user/login')">
+    <div class="header">登录</div>
+      <div class="alert alert-error" id="alert-error" style="display:none">
+          <button class="close" data-dismiss="alert" type="button" onclick="close_alter_error()"><i class="icon-remove"></i></button>
+          <div id="error_msg"></div>
+      </div>
+      <i class="icon-user" ></i>
+      <input class="input-large" type="text" placeholder="Email" name="email" id="email">
+      <br/>
+      <i class="icon-lock" ></i>
+      <input class="input-large" type="password" placeholder="Password" name="password" id="password">
+      <button class="btn" type="submit">登录</button>
+      <a href="/user/register">&nbsp;注册</a>
+    </form>
+    <%}else{%>
+    <div class="panel">
+	<%
+		var avatar_url = "";
+		
+		 if(userinfo.avatar.indexOf("default") == -1){
+			avatar_url = userinfo.avatar; 
+		 }else{
+			avatar_url = config.user_config.avatar_url+userinfo.avatar;
+		 }
+	%>
+      <div style="height:50px;">
+
+      <div id="uinfo_div" class="nailthumb-container" style="float:left">
+            <a href="/diary/<%= userinfo._id %>/mlist"><img class="entry-img" src="<%= avatar_url%>"></a>
+      </div>
+            <div class="userinfo">
+                <i class="icon-flag"></i>&nbsp;<%= userinfo.score%>
+            </div>
+            <div class="user-nickname"><a href="/diary/<%= userinfo._id %>/mlist"><%= userinfo.nickname%></a></div>
+      </div>
+      <div class="proverbs">
+        <%
+        var motto = "";
+        if(userinfo && userinfo.motto){
+            motto = userinfo.motto;
+        }
+        %>
+        <%= motto%>
+      </div>
+    </div>
+    <%}%>
+    <div class="panel">
+        <div class="header">热门日记</div>
+        <ul class="unstyled">
+		<% 
+          if(hot_diarys && hot_diarys.length > 0){
+          for(var i = 0; i < hot_diarys.length; i++) {
+             var diary = hot_diarys[i];
+             
+         %>
+          <li><i class="icon-fire"></i>&nbsp;<a href="/diary/<%= diary._id %>/view"><%= diary.title%></a></li>
+		  <%
+		    }
+      }
+		  %>
+        </ul>       
+    </div>
+    <div class="panel">
+      <div class="header">活跃用户 </div>
+          <ul class="unstyled">
+    <% 
+          if(active_users && active_users.length > 0){
+          for(var i = 0; i < active_users.length; i++) {
+             var user = active_users[i];
+             
+         %>
+          <li><i class="icon-flag"></i>&nbsp;<a href="/diary/<%= user._id %>/mlist"><%= user.nickname%></a></li>
+      <%
+        }
+      }
+      %>
+    </div>
+    <div class="panel">
+      <div class="header">关于本站</div>
+           <ul class="unstyled">
+    <% 
+          if(config.related_sites && config.related_sites.length > 0){
+            for(var i = 0; i < config.related_sites.length; i++) {
+             var rsite = config.related_sites[i];
+            %>
+          <li><i class="icon-hand-up"></i>&nbsp;<%- rsite%></li>
+      <%
+      }
+    }
+      %>
+      
+    </div>
+
+    <script type="text/javascript">
+    jQuery('#uinfo_div').nailthumb({width:48,height:48,method:'resize',fitDirection:'top center'});
+</script>
