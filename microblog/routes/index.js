@@ -18,7 +18,16 @@ module.exports = function(app){
 			req.flash(''error'','两次输入的口令不一致');
 			return res.rediret('/reg');
 		}
+		//生成口令的散列值
+		var md5 = crypto.createHash('md5');
+		var password = md5.update(req.body.password).digest('base64');
 		
+		var newUser = new User({
+			name : req.body.username,
+			password : password
+		});
+		
+		User.get(newUser.name,function)
 	});
 };
 
