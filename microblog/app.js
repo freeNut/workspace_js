@@ -10,8 +10,8 @@ var express = require('express')
   , path = require('path');
 var partials = require('express-partials');
 
-var MongoStore = require('connect-mongo');
-var setting = require('../settings');
+var MongoStore = require("connect-mongo")(express);
+var settings = require('./settings');
 
 
 var app = express();
@@ -29,7 +29,7 @@ app.configure(function(){
   app.use(express.cookieParser());
   app.use(express.session({
 	  secret : settings.cookieSecret,
-	  store : new MongoStore({
+	  Store : new MongoStore({
 		  db : settings.db
 	  })
   }));
